@@ -1,7 +1,12 @@
 <h1>Cahier d'appel</h1>
 
 <app-student-list></app-student-list>
-<app-calendrier (checkboxChange)="maMethode($event)"></app-calendrier>
+
+<app-calendrier 
+(checkboxCochee)="maMethode($event)" 
+(checkboxDecochee)="maMethode2($event)">
+</app-calendrier>
+
 <app-result></app-result>
 
 <router-outlet></router-outlet>

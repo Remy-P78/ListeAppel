@@ -11,8 +11,13 @@ export class AppComponent {
   tab = 0
 
   maMethode(testEmission: boolean) {
-    console.log("passageReussi");
+    console.log("+1");
     this.tab ++
     console.log(this.tab);
   }  
+  maMethode2(testEmission: boolean) {
+    console.log("-1");
+    this.tab --
+    console.log(this.tab);
+  }
 }
