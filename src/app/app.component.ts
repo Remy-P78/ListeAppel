@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'appel';
+  maMethode(testEmission: any) {
+    console.log("passageReussi");
+  }
 }
