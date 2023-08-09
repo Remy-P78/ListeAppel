@@ -7,7 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'appel';
-  maMethode(testEmission: any) {
+
+  tab = 0
+
+  maMethode(testEmission: boolean) {
     console.log("passageReussi");
-  }
+    this.tab ++
+    console.log(this.tab);
+  }  
 }
