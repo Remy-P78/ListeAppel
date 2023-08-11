@@ -1,9 +1,9 @@
-<form>
+<!-- <form>
   <div *ngFor="let nom of liste">
     <label>{{ nom }}</label>
-      <input *ngFor="let date of calendrier" type="checkbox" [value]="nom" (change)="onCheck($event)">      
+      <input *ngFor="let date of calendrier" type="checkbox" (change)="onCheck($event)">      
   </div>
-</form>
+</form> -->
 
 <!-- <h2>Lundi</h2> -->
 
@@ -18,3 +18,24 @@
 <input type="checkbox" id="matin" [(ngModel)]="coche" (change)="onCoche()">
 <label for="aprem">aprem</label>
 <input type="checkbox" id="aprem" [(ngModel)]="coche" (change)="onCoche()"> -->
+
+ <table>
+      <thead>
+        <tr>
+            <th></th>
+            <th>Septembre</th>
+        </tr>
+        <tr>    
+        <th></th>      
+          <th *ngFor="let date of calendrier">{{ date }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let personne of liste">
+          <td>{{ personne }}</td>
+          <td *ngFor="let date of calendrier">
+            <input *ngFor="let date of calendrier" type="checkbox" (change)="onCheck($event)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
