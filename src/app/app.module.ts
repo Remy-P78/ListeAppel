@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SharedService } from './components/shared.service';
 import { StudentListComponent } from './components/student-list/student-list.component';
 import { CalendrierComponent } from './components/calendrier/calendrier.component';
 import { ResultComponent } from './components/result/result.component';
@@ -20,7 +21,7 @@ import { ResultComponent } from './components/result/result.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
