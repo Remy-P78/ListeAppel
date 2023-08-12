@@ -18,6 +18,11 @@
 <input type="checkbox" id="matin" [(ngModel)]="coche" (change)="onCoche()">
 <label for="aprem">aprem</label>
 <input type="checkbox" id="aprem" [(ngModel)]="coche" (change)="onCoche()"> -->
+<div>
+  <button (click)="changeMonth('septembre')">Septembre</button>
+  <button (click)="changeMonth('octobre')">Octobre</button>
+  <!-- Ajoutez des boutons pour les autres mois -->
+</div>
 
  <table>
       <thead>
@@ -31,10 +36,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let personne of liste">
+        <tr *ngFor="let personne of liste; let rowIndex = index">
           <td>{{ personne }}</td>
-          <td *ngFor="let date of calendrier">
-            <input *ngFor="let date of calendrier" type="checkbox" (change)="onCheck($event)">
+          <td *ngFor="let date of calendrier; let columnIndex = index">
+            <!-- <input type="checkbox" (change)="onCheck($event)"> -->
+            <input type="checkbox" [(ngModel)]="presenceData[rowIndex][columnIndex]" />
           </td>
         </tr>
       </tbody>

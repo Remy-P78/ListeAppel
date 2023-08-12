@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent {
-  @Input() envoiTab!: number; 
-  @Input() envoiPresence!: number;
+  // @Input() envoiTab!: number; 
+  // @Input() envoiPresence!: number;
 }
