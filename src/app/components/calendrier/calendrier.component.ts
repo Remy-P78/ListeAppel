@@ -13,10 +13,14 @@ export class CalendrierComponent {
   coche: boolean = false;
   liste: string[] = [];
   calendrier: string[] = [];
+  jours1a30: number[] = []
+  jourSemaine: string[] = []
 
   constructor(private sharedService: SharedService) {
     this.liste = sharedService.getListe();
     this.calendrier = sharedService.getCalendrier();
+    this.jours1a30 = sharedService.getJours1a30();
+    this.jourSemaine = sharedService.getJourSemaine();
   }
 
   onCheck(testEmission: Event) {

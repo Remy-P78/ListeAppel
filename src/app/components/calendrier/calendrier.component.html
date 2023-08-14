@@ -19,23 +19,59 @@
 <label for="aprem">aprem</label>
 <input type="checkbox" id="aprem" [(ngModel)]="coche" (change)="onCoche()"> -->
 
- <table>
-      <thead>
-        <tr>
-            <th></th>
-            <th>Septembre</th>
-        </tr>
-        <tr>    
-        <th></th>      
-          <th *ngFor="let date of calendrier">{{ date }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let personne of liste">
-          <td>{{ personne }}</td>
-          <td *ngFor="let date of calendrier">
-            <input *ngFor="let date of calendrier" type="checkbox" (change)="onCheck($event)">
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Septembre</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th *ngFor="let jour of jours1a30 let i = index">{{ jour }}</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th *ngFor="let date of calendrier">{{ date }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let personne of liste">
+      <td>{{ personne }}</td>
+      <td *ngFor="let jour of jours1a30">
+        <input type="checkbox" (change)="onCheck($event)" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Septembre</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th *ngFor="let jour of jours1a30">{{ jour }}</th>
+    </tr>
+     <tr>
+      <th></th>
+      <ng-container *ngFor="let jour of jours1a30; let i = index">
+        <th *ngIf="calendrier.includes(jourSemaine[i % 7])">
+          {{ jourSemaine[i % 7] }}
+        </th>
+        <th *ngIf="!calendrier.includes(jourSemaine[i % 7])">
+          X {{ jourSemaine[i % 7] }}
+        </th>
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let personne of liste">
+      <td>{{ personne }}</td>
+      <td *ngFor="let jour of jours1a30">
+        <input type="checkbox" (change)="onCheck($event)" />
+      </td>
+    </tr>
+  </tbody>
+</table>
