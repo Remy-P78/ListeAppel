@@ -7,9 +7,9 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./student-list.component.css'],
 })
 export class StudentListComponent {
-    liste: string[] = [];
+  listeEleves: string[] = [];
 
   constructor(private sharedService: SharedService) {
-    this.liste = sharedService.getListe();
+    this.listeEleves = sharedService.getListeEleves();
   }
 }

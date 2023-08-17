@@ -1,15 +1,18 @@
 <h1>Cahier d'appel</h1>
 
+<router-outlet></router-outlet>
+
 <app-student-list></app-student-list>
 
 <app-calendrier 
+(compteurJourOuvreChange)="onCompteurJourOuvre($event)"
 (checkboxCochee)="maMethode($event.j, $event.jour)" 
 (checkboxDecochee)="maMethode2($event.j, $event.jour)"
-(compteurJourOuvreChange)="onCompteurJourOuvreChange($event)">
+>
 </app-calendrier>
 
 <app-result 
-[envoiTab]="present"
-[envoiPresence]="presence"></app-result>
+[envoiCompteurJoursPresence]="compteurJoursPresence"
+[envoiTotalJoursPresence]="totalJoursPresence"></app-result>
 
-<router-outlet></router-outlet>
+

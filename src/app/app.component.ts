@@ -9,40 +9,40 @@ import { SharedService } from './components/shared.service';
 export class AppComponent {
   title = 'appel';
 
-  present: number = 0;
-  presence: number = 0;
-  presentX: number = 0;
-  presenceX: number = 0;
+  compteurJoursPresence: number = 0;
+  totalJoursPresence: number = 0;
   personne: number = 0;
 
-  liste: string[] = [];
+  listeEleves: string[] = [];
   calendrier: string[] = [];
   jours1a30: number[] = [];
   jourSemaine: string[] = [];
+  jourOuvreDuMois: number = 0;
 
   constructor(private sharedService: SharedService) {
-    this.liste = sharedService.getListe();
+    this.listeEleves = sharedService.getListeEleves();
     this.calendrier = sharedService.getCalendrier();
     this.jours1a30 = sharedService.getJours1a30();
     this.jourSemaine = sharedService.getJourSemaine();
   }
 
   maMethode(j: number, testEmission: boolean) {
-    this.present++;
-    this.presence =
-      (this.present * 100) / (this.liste.length * this.calendrier.length);
-    this.presenceX;
+    this.compteurJoursPresence++;
+    this.totalJoursPresence =
+      (this.compteurJoursPresence * 100) /
+      (this.listeEleves.length * this.jourOuvreDuMois);
     console.log('personneIndex:', j);
+    console.log('valeur du compteur:', this.jourOuvreDuMois);
   }
 
   maMethode2(j: number, testEmission: boolean) {
-    this.present--;
-    this.presence =
-      (this.present * 100) / (this.liste.length * this.calendrier.length);
+    this.compteurJoursPresence--;
+    this.totalJoursPresence =
+      (this.compteurJoursPresence * 100) /
+      (this.listeEleves.length * this.jourOuvreDuMois);
   }
 
-  onCompteurJourOuvreChange(nouvelleValeur: number) {
-    // Traitez la nouvelle valeur ici
-    console.log('Nouvelle valeur du compteurJourOuvre:', nouvelleValeur);
+  onCompteurJourOuvre(jourOuvreDuMois: number) {
+    console.log('Nouvelle valeur du compteurJourOuvre:', jourOuvreDuMois);
   }
 }

@@ -18,7 +18,7 @@ export class SharedService {
     }
   }
 
-  getListe(): string[] {
+  getListeEleves(): string[] {
     return this.liste;
   }
 

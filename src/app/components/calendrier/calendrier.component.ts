@@ -10,10 +10,10 @@ export class CalendrierComponent {
   @Output() checkboxCochee = new EventEmitter();
   @Output() checkboxDecochee = new EventEmitter();
   @Output() compteurJourOuvreChange = new EventEmitter<number>();
-  
+
   compteur: number = 0;
   coche: boolean = false;
-  liste: string[] = [];
+  listeEleves: string[] = [];
   calendrier: string[] = [];
   jours1a30: number[] = [];
   jourSemaine: string[] = [];
@@ -21,7 +21,7 @@ export class CalendrierComponent {
   compteurJoursOuvre = 0;
 
   constructor(private sharedService: SharedService) {
-    this.liste = sharedService.getListe();
+    this.listeEleves = sharedService.getListeEleves();
     this.calendrier = sharedService.getCalendrier();
     this.jours1a30 = sharedService.getJours1a30();
     this.jourSemaine = sharedService.getJourSemaine();
@@ -45,7 +45,6 @@ export class CalendrierComponent {
         this.compteurJoursOuvre++;
       }
       console.log('CJO', this.compteurJoursOuvre);
-      
     }
     this.compteurJourOuvreChange.emit(this.compteurJoursOuvre);
   }
@@ -60,7 +59,7 @@ export class CalendrierComponent {
       }
     }
     console.log('text', j);
-    console.log(this.liste[j]);
+    console.log(this.listeEleves[j]);
   }
 }
 
