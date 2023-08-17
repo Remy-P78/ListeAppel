@@ -3,8 +3,9 @@
 <app-student-list></app-student-list>
 
 <app-calendrier 
-(checkboxCochee)="maMethode($event)" 
-(checkboxDecochee)="maMethode2($event)">
+(checkboxCochee)="maMethode($event.j, $event.jour)" 
+(checkboxDecochee)="maMethode2($event.j, $event.jour)"
+(compteurJourOuvreChange)="onCompteurJourOuvreChange($event)">
 </app-calendrier>
 
 <app-result 
