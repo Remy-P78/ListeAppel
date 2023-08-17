@@ -3,9 +3,10 @@ import { Injectable } from "@angular/core";
 @Injectable({ providedIn: 'root' })
 export class SharedService {
   private liste: string[] = ['John Do', 'John Toit', 'John Quat'];
-  private calendrier: string[] = ['Lu', 'Ma', 'Je', 'Ve'];
+  private joursOuvre: string[] = ['Lu', 'Ma', 'Je', 'Ve'];
   private jours1a30 = Array.from({ length: 30 }, (_, index) => index + 1);
   private joursSemaine = ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di'];
+  private compteurJoursOuvre!: number;
 
   addNom(nom: string) {
     this.liste.push(nom);
@@ -22,8 +23,8 @@ export class SharedService {
     return this.liste;
   }
 
-  getCalendrier(): string[] {
-    return this.calendrier;
+  getjoursOuvre(): string[] {
+    return this.joursOuvre;
   }
 
   getJourSemaine(): string[] {
@@ -32,5 +33,13 @@ export class SharedService {
 
   getJours1a30(): number[] {
     return this.jours1a30;
+  }
+
+  setJourOuvreParMois(jourOuvre: number) {
+    this.compteurJoursOuvre = jourOuvre;
+  }
+
+  getJourOuvreParMois() {
+    return this.compteurJoursOuvre;
   }
 }

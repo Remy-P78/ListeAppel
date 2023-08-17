@@ -22,10 +22,10 @@ export class CalendrierComponent {
 
   constructor(private sharedService: SharedService) {
     this.listeEleves = sharedService.getListeEleves();
-    this.calendrier = sharedService.getCalendrier();
+    this.calendrier = sharedService.getjoursOuvre();
     this.jours1a30 = sharedService.getJours1a30();
     this.jourSemaine = sharedService.getJourSemaine();
-    this.InitCompteurJours();
+    this.initCompteurJours();
   }
 
   // onCheck(testEmission: Event) {
@@ -36,7 +36,8 @@ export class CalendrierComponent {
   //     this.checkboxDecochee.emit(testEmission);
   //   }
   // }
-  InitCompteurJours() {
+
+  initCompteurJours() {
     for (let i = 0; i < this.jours1a30.length; i++) {
       if (
         (this.conditionJourOuvre = this.calendrier.includes(
@@ -46,9 +47,21 @@ export class CalendrierComponent {
         this.compteurJoursOuvre++;
       }
     }
-    console.log('CJO2', this.compteurJoursOuvre);
-    this.compteurJourOuvreChange.emit(this.compteurJoursOuvre);
+    this.sharedService.setJourOuvreParMois(this.compteurJoursOuvre);
   }
+
+  // onCheck(j: number, jour: string, testEmission: Event) {
+  //   const checkbox = testEmission.target as HTMLInputElement;
+  //   if (checkbox) {
+  //     if (checkbox.checked) {
+  //       this.checkboxCochee.emit({ j, jour });
+  //     } else {
+  //       this.checkboxDecochee.emit({ j, jour });
+  //     }
+  //   }
+  //   console.log('text', j);
+  //   console.log(this.listeEleves[j]);
+  // }
 
   onCheck(j: number, jour: string, testEmission: Event) {
     const checkbox = testEmission.target as HTMLInputElement;

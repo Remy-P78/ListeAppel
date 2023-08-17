@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   compteurJoursPresence: number = 0;
   totalJoursPresence: number = 0;
   personne: number = 0;
-  compteurJoursOuvre = 1;
+  compteurJoursOuvre!: number;
 
   listeEleves: string[] = [];
   calendrier: string[] = [];
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   constructor(private sharedService: SharedService) {
     this.listeEleves = sharedService.getListeEleves();
-    this.calendrier = sharedService.getCalendrier();
+    this.calendrier = sharedService.getjoursOuvre();
     this.jours1a30 = sharedService.getJours1a30();
     this.jourSemaine = sharedService.getJourSemaine();    
   }
