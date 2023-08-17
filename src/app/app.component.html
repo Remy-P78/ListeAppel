@@ -5,9 +5,8 @@
 <app-student-list></app-student-list>
 
 <app-calendrier 
-(compteurJourOuvreChange)="onCompteurJourOuvre($event)"
-(checkboxCochee)="maMethode($event.j, $event.jour)" 
-(checkboxDecochee)="maMethode2($event.j, $event.jour)"
+(checkboxCochee)="presencePlus1Jour($event.j, $event.jour)" 
+(checkboxDecochee)="presenceMoins1Jour($event.j, $event.jour)"
 >
 </app-calendrier>
 

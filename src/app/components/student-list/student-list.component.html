@@ -3,7 +3,7 @@
 <div>
   <ul>
     <li *ngFor="let nom of listeEleves; let indexEleve = index">
-      <a [routerLink]="['../app-result', indexEleve]">{{ nom }} </a>
+      <a [routerLink]="['../app-result', indexEleve]" (click)="detailEleve(indexEleve)">{{ nom }} </a>
     </li>
   </ul>
 </div>

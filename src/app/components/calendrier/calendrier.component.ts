@@ -19,6 +19,7 @@ export class CalendrierComponent {
   jourSemaine: string[] = [];
   conditionJourOuvre = false;
   compteurJoursOuvre = 0;
+  compteurJoursPresence: number = 0;
 
   constructor(private sharedService: SharedService) {
     this.listeEleves = sharedService.getListeEleves();
@@ -64,12 +65,16 @@ export class CalendrierComponent {
   // }
 
   onCheck(j: number, jour: string, testEmission: Event) {
+    
     const checkbox = testEmission.target as HTMLInputElement;
     if (checkbox) {
       if (checkbox.checked) {
-        this.checkboxCochee.emit({ j, jour });
+        this.compteurJoursPresence++;
+        this.sharedService.setPresence(this.compteurJoursPresence);
+        console.log("presence", this.compteurJoursPresence);
       } else {
-        this.checkboxDecochee.emit({ j, jour });
+        this.compteurJoursPresence--;
+        this.sharedService.setPresence(this.compteurJoursPresence);
       }
     }
     console.log('text', j);
