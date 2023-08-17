@@ -25,6 +25,7 @@ export class CalendrierComponent {
     this.calendrier = sharedService.getCalendrier();
     this.jours1a30 = sharedService.getJours1a30();
     this.jourSemaine = sharedService.getJourSemaine();
+    this.InitCompteurJours();
   }
 
   // onCheck(testEmission: Event) {
@@ -35,7 +36,7 @@ export class CalendrierComponent {
   //     this.checkboxDecochee.emit(testEmission);
   //   }
   // }
-  ngOnInit() {
+  InitCompteurJours() {
     for (let i = 0; i < this.jours1a30.length; i++) {
       if (
         (this.conditionJourOuvre = this.calendrier.includes(
@@ -44,8 +45,8 @@ export class CalendrierComponent {
       ) {
         this.compteurJoursOuvre++;
       }
-      console.log('CJO', this.compteurJoursOuvre);
     }
+    console.log('CJO2', this.compteurJoursOuvre);
     this.compteurJourOuvreChange.emit(this.compteurJoursOuvre);
   }
 
