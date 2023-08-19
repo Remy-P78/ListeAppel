@@ -9,23 +9,26 @@ import { SharedService } from './components/shared.service';
 import { StudentListComponent } from './components/student-list/student-list.component';
 import { CalendrierComponent } from './components/calendrier/calendrier.component';
 import { ResultComponent } from './components/result/result.component';
+import { PagehomeComponent } from './components/pagehome/pagehome.component';
 
-const routes: Routes = [
-  { path: 'app-result/:id', component: ResultComponent }
-];
+// const routes: Routes = [
+//   { path: '', redirectTo: "http://localhost:4200/"},
+//   { path: 'app-result/:id', component: ResultComponent },
+// ];
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentListComponent,
     CalendrierComponent,
-    ResultComponent
+    ResultComponent,
+    PagehomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    // RouterModule.forRoot(routes)
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

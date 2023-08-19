@@ -1,9 +1,17 @@
-<h2>Eleves</h2>
+<h2>Elèves</h2>
 
 <div>
   <ul>
     <li *ngFor="let nom of listeEleves; let indexEleve = index">
-      <a [routerLink]="['../app-result', indexEleve]" (click)="detailEleve(indexEleve)">{{ nom }} </a>
+      <a [routerLink]="['/app-result', indexEleve]" (click)="detailEleve(indexEleve)">{{ nom }} </a>
     </li>
   </ul>
 </div>
+
+<!-- <div>
+  <ul>
+    <li *ngFor="let nom of listeEleves; let indexEleve = index">
+      <a [routerLink]="['../app-result:id', indexEleve]" >{{ nom }} </a>
+    </li>
+  </ul>
+</div> -->

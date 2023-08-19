@@ -1,17 +1,14 @@
-<h1>Cahier d'appel</h1>
+<div id="navContainer">
+<h1><a [routerLink]="['']">Cahier d'appel</a></h1>
+<h1><a [routerLink]="['/student-list']">Eleves</a></h1>
+</div>
 
 <router-outlet></router-outlet>
 
-<app-student-list></app-student-list>
 
-<app-calendrier 
-(checkboxCochee)="presencePlus1Jour($event.j, $event.jour)" 
-(checkboxDecochee)="presenceMoins1Jour($event.j, $event.jour)"
->
-</app-calendrier>
 
-<app-result 
-[envoiCompteurJoursPresence]="compteurJoursPresence"
-[envoiTotalJoursPresence]="totalJoursPresence"></app-result>
+
+
+
 
 
